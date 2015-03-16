@@ -15,7 +15,7 @@ appsid      = 'APb8ec54876713ede1182aef444c7d7399' #ENV['twilio_app_id']
 api_key     = 'b79d0d684247fa6f95dc00794900ce2c'#ENV['whitepages_api_key']  
 
 get '/' do
-    puts 'In Default'
+    puts "In Default"
     client_name = params[:client]
     if client_name.nil?
         client_name = default_client
@@ -32,7 +32,7 @@ end
 
  
 post '/dial' do
-    puts 'In Dial'
+    puts "In Dial"
     #determine if call is inbound
     number = params[:PhoneNumber] 
 
@@ -58,6 +58,7 @@ post '/inbound' do
 
     from = params[:From] 
 
+    puts "In Inbound"
     response = Twilio::TwiML::Response.new do |r|
         # Should be your Twilio Number or a verified Caller ID
         r.Dial :callerId => from do |d|
