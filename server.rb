@@ -8,7 +8,7 @@ disable :protection
 # put your default Twilio Client name here, for when a phone number isn't given
 default_client = "kushal"
 # Add a Twilio phone number or number verified with Twilio as the caller ID
-caller_id   = '12109609335'
+caller_id   = '+1 (210)-960-9335'
 account_sid = 'ACd068f57545fdc97e8dadf3475efff600' #ENV['twilio_account_sid']''
 auth_token  = '0c3b9e23e09e98875c463197e1f3a008' #ENV['twilio_auth_token']
 appsid      = 'APb8ec54876713ede1182aef444c7d7399' #ENV['twilio_app_id']
