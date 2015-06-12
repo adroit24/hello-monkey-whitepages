@@ -127,12 +127,13 @@ def getnamefromwhitepages (phone, api_key)
           
           unless belongstoObject['gender'].nil?
             whitepagesobject[:gender] = belongstoObject['gender']
-          
+          end
+
           unless belongstoObject['age_range'].nil?
-          whitepagesobject[:age_range_start] = belongstoObject['age_range']['start']
-          whitepagesobject[:age_range_end] = belongstoObject['age_range']['end']
-          whitepagesobject[:age_range] = "#{whitepagesobject[:age_range_start]} #{whitepagesobject[:age_range_end]}" 
-        
+            whitepagesobject[:age_range_start] = belongstoObject['age_range']['start']
+            whitepagesobject[:age_range_end] = belongstoObject['age_range']['end']
+            whitepagesobject[:age_range] = "#{whitepagesobject[:age_range_start]} #{whitepagesobject[:age_range_end]}" 
+          end        
         elsif whitepagesobject[:persontype] == "Business"
           whitepagesobject[:name]  = belongstoObject['name']
         end
