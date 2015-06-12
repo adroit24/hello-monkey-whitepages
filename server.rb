@@ -108,7 +108,8 @@ def getnamefromwhitepages (phone, api_key)
     dictionarykeyphone = response['dictionary'][result]
     whitepagesobject[:phonetype] = dictionarykeyphone['line_type']
     whitepagesobject[:carrier]   = dictionarykeyphone['carrier']
-    whitepagesobject[:spamscore]  = dictionarykeyphone['reputation']['spam_score'] 
+    whitepagesobject[:spamscore]  = dictionarykeyphone['reputation']['level'] 
+    whitepagesobject[:isprepaid]  = dictionarykeyphone['is_prepaid'] 
 
     if dictionarykeyphone['belongs_to'][0]
 
@@ -123,6 +124,10 @@ def getnamefromwhitepages (phone, api_key)
           whitepagesobject[:firstname] = belongstoObject['names'][0]['first_name']  #TODO: This can error if there is no first_name
           whitepagesobject[:lastname]  = belongstoObject['names'][0]['last_name']
           whitepagesobject[:name] = "#{whitepagesobject[:firstname]} #{whitepagesobject[:lastname]}" 
+          whitepagesobject[:gender] = belongstoObject['gender']
+          whitepagesobject[:age_range_start] = belongstoObject['age_range']['start']
+          whitepagesobject[:age_range_end] = belongstoObject['age_range']['end']
+          whitepagesobject[:age_range] = "#{whitepagesobject[:age_range_start]} #{whitepagesobject[:age_range_end]}" 
         elsif whitepagesobject[:persontype] == "Business"
           whitepagesobject[:name]  = belongstoObject['name']
         end
